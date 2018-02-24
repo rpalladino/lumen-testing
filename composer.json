@@ -11,8 +11,9 @@
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "~1.0",
         "phpunit/phpunit": "~7.0",
-        "mockery/mockery": "~1.0"
+        "psy/psysh": "^0.8.17"
     },
     "autoload": {
         "psr-4": {
