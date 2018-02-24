@@ -23,6 +23,9 @@
         "classmap": [
             "tests/",
             "database/"
+        ],
+        "files": [
+            "vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"
         ]
     },
     "scripts": {
