@@ -16,3 +16,4 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/hello', 'ExampleController@hello');
+$router->get('/hello/{lastName}', 'ExampleController@helloPerson');
