@@ -17,7 +17,7 @@ class ExampleControllerTest extends TestCase
     public function setUp()
     {
         $this->personRepository = Mockery::mock(PersonRepository::class);
-        $this->weatherClient = Mockery::spy(WeatherClient::class);
+        $this->weatherClient = Mockery::mock(WeatherClient::class);
 
         $this->subject = new ExampleController(
             $this->personRepository,
@@ -70,7 +70,12 @@ class ExampleControllerTest extends TestCase
      */
     public function shouldCallWeatherClient()
     {
-        $this->subject->weather();
-        $this->weatherClient->shouldHaveReceived()->currentWeather();
+        $current = "Hamburg, 8°C raining";
+        $this->weatherClient->allows()->currentWeather()->andReturns($current);
+
+        $weather = $this->subject->weather();
+
+        assertThat($weather, is($current));
+
     }
 }
