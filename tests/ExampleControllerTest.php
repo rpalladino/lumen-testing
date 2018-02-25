@@ -4,6 +4,7 @@ use App\Http\Controllers\ExampleController;
 use Example\Person\Person;
 use Example\Person\PersonRepository;
 use PhpOption\Some;
+use PhpOption\None;
 use PHPUnit\Framework\TestCase;
 
 class ExampleControllerTest extends TestCase
@@ -41,5 +42,19 @@ class ExampleControllerTest extends TestCase
         $greeting = $this->subject->helloPerson("Pan");
 
         assertThat($greeting, is("Hello Peter Pan!"));
+    }
+
+    /**
+     * @test
+     */
+    public function shouldTellIfPersonIsUnknown()
+    {
+        $this->personRepository->allows()
+             ->findByLastName(anything())
+             ->andReturns(None::create());
+
+        $greeting = $this->subject->helloPerson("Pan");
+
+        assertThat($greeting, is("Who is this 'Pan' you're talking about?"));
     }
 }

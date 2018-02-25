@@ -29,6 +29,6 @@ class ExampleController extends Controller
             ->map(function ($person) {
                 return "Hello {$person->firstName} {$person->lastName}!";
             })
-            ->get();
+            ->getOrElse("Who is this '{$lastName}' you're talking about?");
     }
 }
