@@ -31,4 +31,9 @@ class ExampleController extends Controller
             })
             ->getOrElse("Who is this '{$lastName}' you're talking about?");
     }
+
+    public function weather()
+    {
+        return;
+    }
 }
