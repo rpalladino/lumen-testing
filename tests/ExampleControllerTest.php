@@ -3,6 +3,7 @@
 use App\Http\Controllers\ExampleController;
 use Example\Person\Person;
 use Example\Person\PersonRepository;
+use Example\Weather\WeatherClient;
 use PhpOption\Some;
 use PhpOption\None;
 use PHPUnit\Framework\TestCase;
@@ -11,11 +12,17 @@ class ExampleControllerTest extends TestCase
 {
     private $subject;
     private $personRepository;
+    private $weatherClient;
 
     public function setUp()
     {
         $this->personRepository = Mockery::mock(PersonRepository::class);
-        $this->subject = new ExampleController($this->personRepository);
+        $this->weatherClient = Mockery::spy(WeatherClient::class);
+
+        $this->subject = new ExampleController(
+            $this->personRepository,
+            $this->weatherClient
+        );
     }
 
     /**
@@ -56,5 +63,14 @@ class ExampleControllerTest extends TestCase
         $greeting = $this->subject->helloPerson("Pan");
 
         assertThat($greeting, is("Who is this 'Pan' you're talking about?"));
+    }
+
+    /**
+     * @test
+     */
+    public function shouldCallWeatherClient()
+    {
+        $this->subject->weather();
+        $this->weatherClient->shouldHaveReceived()->currentWeather();
     }
 }

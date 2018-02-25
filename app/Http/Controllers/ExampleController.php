@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Example\Person\PersonRepository;
+use Example\Weather\WeatherClient;
 
 class ExampleController extends Controller
 {
@@ -11,9 +12,15 @@ class ExampleController extends Controller
      */
     private $personRepository;
 
-    public function __construct(PersonRepository $personRepository)
+    /**
+     * @var WeatherClient
+     */
+    private $weatherClient;
+
+    public function __construct(PersonRepository $personRepository, WeatherClient $weatherClient)
     {
         $this->personRepository = $personRepository;
+        $this->weatherClient = $weatherClient;
     }
 
     public function hello() : string
@@ -34,6 +41,6 @@ class ExampleController extends Controller
 
     public function weather()
     {
-        return;
+        return $this->weatherClient->currentWeather();
     }
 }
