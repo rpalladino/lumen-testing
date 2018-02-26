@@ -71,7 +71,7 @@ class ExampleControllerTest extends TestCase
     public function shouldCallWeatherClient()
     {
         $current = "Hamburg, 8°C raining";
-        $this->weatherClient->allows()->currentWeather()->andReturns($current);
+        $this->weatherClient->allows()->currentWeather()->andReturns(new Some($current));
 
         $weather = $this->subject->weather();
 

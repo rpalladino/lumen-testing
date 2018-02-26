@@ -2,10 +2,12 @@
 
 namespace Example\Weather;
 
+use PhpOption\Option;
+
 class WeatherClient
 {
-	public function currentWeather(): ?string
+	public function currentWeather(): Option
 	{
-		return null;
+		return Option::fromValue(null);
 	}
 }
