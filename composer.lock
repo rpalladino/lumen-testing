@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab5756f182bd5e7ab9be15220d090fd8",
+    "content-hash": "ac4b941d084787d1609b31e490b2248b",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -4542,6 +4542,46 @@
                 "validate"
             ],
             "time": "2018-01-29T19:49:41+00:00"
+        },
+        {
+            "name": "wiremock-php/wiremock-php",
+            "version": "1.43.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rowanhill/wiremock-php.git",
+                "reference": "f5a447963658c111a5840c27843f086502535758"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rowanhill/wiremock-php/zipball/f5a447963658c111a5840c27843f086502535758",
+                "reference": "f5a447963658c111a5840c27843f086502535758",
+                "shasum": ""
+            },
+            "require-dev": {
+                "hafriedlander/phockito": "^1.0",
+                "phpunit/phpunit": "^4.0 | ^5.0"
+            },
+            "suggest": {
+                "phpunit/phpunit": "Thrown VerificationExceptions automatically fail tests"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "WireMock\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rowan Hill"
+                }
+            ],
+            "description": "PHP API for WireMock JSON interface",
+            "homepage": "http://github.com/rowanhill/wiremock-php",
+            "time": "2017-02-27T11:45:37+00:00"
         }
     ],
     "aliases": [],

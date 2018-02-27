@@ -16,7 +16,8 @@
         "graze/hamcrest-test-listener": "^3.0",
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "^6.5",
-        "psy/psysh": "^0.8.17"
+        "psy/psysh": "^0.8.17",
+        "wiremock-php/wiremock-php": "^1.43"
     },
     "autoload": {
         "psr-4": {
