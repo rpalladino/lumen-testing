@@ -35,6 +35,6 @@ class PersonRepositoryIntegrationTest extends TestCase
         $maybePeter = $this->subject->findByLastName("Pan");
 
         assertThat($maybePeter->isDefined(), is(true));
-        assertThat($maybePeter->get()->firstName, is("Peter"));
+        assertThat($maybePeter->get()->getFirstName(), is("Peter"));
     }
 }
