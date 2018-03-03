@@ -1,5 +1,6 @@
 <?php
 
+use Example\Helper\FileLoader;
 use WireMock\Client\WireMock;
 
 class ExampleAcceptanceTest extends TestCase
@@ -22,7 +23,7 @@ class ExampleAcceptanceTest extends TestCase
         $wireMock->stubFor(WireMock::get(WireMock::urlEqualTo($path))
             ->willReturn(WireMock::aResponse()
                 ->withHeader('Content-Type', 'application/json')
-                ->withBody(file_get_contents(__DIR__.'/Weather/weatherApiResponse.json'))));
+                ->withBody(FileLoader::read(__DIR__.'/Weather/weatherApiResponse.json'))));
 
         $response = $this->call('GET', '/weather');
 

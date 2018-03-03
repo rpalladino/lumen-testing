@@ -1,5 +1,6 @@
 <?php
 
+use Example\Helper\FileLoader;
 use Example\Weather\WeatherClient;
 use Example\Weather\WeatherResponse;
 use GuzzleHttp\Client as HttpClient;
@@ -24,7 +25,7 @@ class WeatherClientTest extends PHPUnit\Framework\TestCase
 
     public function setUp()
     {
-        $apiResponseJson =  file_get_contents(self::RESPONSE_FILE);
+        $apiResponseJson =  FileLoader::read(self::RESPONSE_FILE);
         $httpClient = new HttpClient([
             'handler' => HandlerStack::create(
                 new MockHandler([

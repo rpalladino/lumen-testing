@@ -1,5 +1,6 @@
 <?php
 
+use Example\Helper\FileLoader;
 use Example\Weather\WeatherClient;
 use GuzzleHttp\Client as HttpClient;
 use PhpOption\Option;
@@ -40,7 +41,7 @@ class WeatherClientIntegrationTest extends PHPUnit\Framework\TestCase
             ->willReturn(WireMock::aResponse()
                 ->withStatus(200)
                 ->withHeader('Content-Type', 'application/json')
-                ->withBody(file_get_contents(__DIR__.'/weatherApiResponse.json'))));
+                ->withBody(FileLoader::read(__DIR__.'/weatherApiResponse.json'))));
 
         $response = $this->subject->currentWeather();
 
