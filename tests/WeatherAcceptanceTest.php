@@ -3,7 +3,7 @@
 use Example\Helper\FileLoader;
 use WireMock\Client\WireMock;
 
-class ExampleAcceptanceTest extends TestCase
+class WeatherAcceptanceTest extends TestCase
 {
     /**
      * @test
