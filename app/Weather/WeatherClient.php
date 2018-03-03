@@ -19,7 +19,7 @@ class WeatherClient
 
 	public function currentWeather(): Option
 	{
-		$response = $this->httpClient->request('GET', '/weather');
+        $response = $this->httpClient->request('GET', 'http://localhost:9999/weather');
 
 		$summary = json_decode($response->getBody())->currently->summary;
 		$weatherResponse = new WeatherResponse($summary);

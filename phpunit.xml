@@ -29,5 +29,7 @@
         <env name="DB_CONNECTION" value="sqlite"/>
         <env name="DB_DATABASE" value=":memory:"/>
         <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="WIREMOCK_HOST" value="localhost"/>
+        <env name="WIREMOCK_PORT" value="9999"/>
     </php>
 </phpunit>

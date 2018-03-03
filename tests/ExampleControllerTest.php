@@ -4,6 +4,7 @@ use App\Http\Controllers\ExampleController;
 use Example\Person\Person;
 use Example\Person\PersonRepository;
 use Example\Weather\WeatherClient;
+use Example\Weather\WeatherResponse;
 use PhpOption\Some;
 use PhpOption\None;
 use PHPUnit\Framework\TestCase;
@@ -71,7 +72,10 @@ class ExampleControllerTest extends TestCase
     public function shouldCallWeatherClient()
     {
         $current = "Hamburg, 8°C raining";
-        $this->weatherClient->allows()->currentWeather()->andReturns(new Some($current));
+        $this->weatherClient
+            ->allows()
+                ->currentWeather()
+                ->andReturns(new Some(new WeatherResponse($current)));
 
         $weather = $this->subject->weather();
 

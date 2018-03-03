@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Example\Person\PersonRepository;
 use Example\Weather\WeatherClient;
+use Example\Weather\WeatherResponse;
 
 class ExampleController extends Controller
 {
@@ -41,6 +42,10 @@ class ExampleController extends Controller
 
     public function weather() : string
     {
-        return $this->weatherClient->currentWeather()->getOrElse('');
+        return $this->weatherClient->currentWeather()
+            ->map(function(WeatherResponse $weather) {
+                return $weather->getSummary();
+            })
+            ->getOrElse('');
     }
 }
