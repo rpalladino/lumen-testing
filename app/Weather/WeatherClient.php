@@ -12,14 +12,21 @@ class WeatherClient
      */
     private $httpClient;
 
-    public function __construct(HttpClient $httpClient)
+    /**
+     * @var string
+     */
+    private $weatherServiceUrl;
+
+    public function __construct(HttpClient $httpClient, string $weatherServiceUrl)
     {
         $this->httpClient = $httpClient;
+        $this->weatherServiceUrl = $weatherServiceUrl;
     }
 
     public function currentWeather(): Option
     {
-        $response = $this->httpClient->request('GET', 'http://localhost:9999/weather');
+        $response = $this->httpClient
+            ->request('GET', $this->weatherServiceUrl);
 
         $summary = json_decode($response->getBody())->currently->summary;
         $weatherResponse = new WeatherResponse($summary);

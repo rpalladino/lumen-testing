@@ -9,14 +9,17 @@ class ExampleAcceptanceTest extends TestCase
      */
     public function shouldReturnCurrentWeather()
     {
+        $weatherService = parse_url(getenv('WEATHER_SERVICE_URL'));
+
         $wireMock = WireMock::create(
-            getenv('WIREMOCK_HOST'),
-            getenv('WIREMOCK_PORT')
+            $weatherService['host'],
+            $weatherService['port']
         );
 
         assertThat($wireMock->isAlive(), is(true));
 
-        $wireMock->stubFor(WireMock::get(WireMock::urlEqualTo('/weather'))
+        $path = $weatherService['path'];
+        $wireMock->stubFor(WireMock::get(WireMock::urlEqualTo($path))
             ->willReturn(WireMock::aResponse()
                 ->withHeader('Content-Type', 'application/json')
                 ->withBody(file_get_contents(__DIR__.'/Weather/weatherApiResponse.json'))));

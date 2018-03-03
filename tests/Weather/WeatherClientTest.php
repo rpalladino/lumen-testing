@@ -32,7 +32,7 @@ class WeatherClientTest extends PHPUnit\Framework\TestCase
                 ])
             )
         ]);
-        $this->subject = new WeatherClient($httpClient);
+        $this->subject = new WeatherClient($httpClient, '');
     }
 
     /**
