@@ -35,7 +35,7 @@ class ExampleController extends Controller
 
         return $foundPerson
             ->map(function ($person) {
-                return "Hello {$person->firstName} {$person->lastName}!";
+                return "Hello {$person->getFirstName()} {$person->getLastName()}!";
             })
             ->getOrElse("Who is this '{$lastName}' you're talking about?");
     }
