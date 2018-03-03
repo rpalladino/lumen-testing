@@ -7,6 +7,8 @@ use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Exception\RequestException;
 use PhpOption\Option;
 
 class WeatherClientTest extends PHPUnit\Framework\TestCase
@@ -14,16 +16,9 @@ class WeatherClientTest extends PHPUnit\Framework\TestCase
     const RESPONSE_FILE = __DIR__."/weatherApiResponse.json";
 
     /**
-     * @var WeatherClient
+     * @test
      */
-    private $subject;
-
-    /**
-     * @var HttpClient
-     */
-    private $httpClient;
-
-    public function setUp()
+    public function shouldCallWeatherService()
     {
         $apiResponseJson =  FileLoader::read(self::RESPONSE_FILE);
         $httpClient = new HttpClient([
@@ -33,18 +28,32 @@ class WeatherClientTest extends PHPUnit\Framework\TestCase
                 ])
             )
         ]);
-        $this->subject = new WeatherClient($httpClient, '');
+        $subject = new WeatherClient($httpClient, '/');
+
+        $maybeWeather = $subject->currentWeather();
+
+        assertThat($maybeWeather instanceof Option, is(true));
+        assertThat($maybeWeather->isDefined(), is(true));
+        assertThat($maybeWeather->get()->getSummary(), is("Rain"));
     }
 
     /**
      * @test
      */
-    public function shouldCallWeatherService()
+    public function shouldReturnEmptyOptionalIfWeatherServiceIsUnavailable()
     {
-        $maybeWeather = $this->subject->currentWeather();
+        $httpClient = new HttpClient([
+            'handler' => HandlerStack::create(
+                new MockHandler([
+                    new RequestException("Something went wrong", new Request('GET', '/'))
+                ])
+            )
+        ]);
+        $subject = new WeatherClient($httpClient, '/');
 
-        assertThat($maybeWeather instanceof Option, is(true));
-        assertThat($maybeWeather->isDefined(), is(true));
-        assertThat($maybeWeather->get()->getSummary(), is("Rain"));
+        $response = $subject->currentWeather();
+
+        assertThat($response->isEmpty(), is(true));
+
     }
 }

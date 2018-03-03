@@ -46,6 +46,6 @@ class ExampleController extends Controller
             ->map(function(WeatherResponse $weather) {
                 return $weather->getSummary();
             })
-            ->getOrElse('');
+            ->getOrElse("Sorry, I couldn't fetch the weather for you :(");
     }
 }

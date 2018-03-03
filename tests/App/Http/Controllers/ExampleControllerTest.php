@@ -80,6 +80,19 @@ class ExampleControllerTest extends TestCase
         $weather = $this->subject->weather();
 
         assertThat($weather, is($current));
+    }
 
+    /**
+     * @test
+     */
+    public function shouldReturnErrorMessageIfWeatherIsUnavailable()
+    {
+        $this->weatherClient->allows()
+            ->currentWeather()
+            ->andReturns(None::create());
+
+        $weather = $this->subject->weather();
+
+        assertThat($weather, is("Sorry, I couldn't fetch the weather for you :("));
     }
 }

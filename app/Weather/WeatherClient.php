@@ -3,7 +3,9 @@
 namespace Example\Weather;
 
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Exception\RequestException;
 use PhpOption\Option;
+use PhpOption\None;
 
 class WeatherClient
 {
@@ -25,8 +27,12 @@ class WeatherClient
 
     public function currentWeather(): Option
     {
-        $response = $this->httpClient
-            ->request('GET', $this->weatherServiceUrl);
+        try {
+            $response = $this->httpClient
+                ->request('GET', $this->weatherServiceUrl);
+        } catch (RequestException $e) {
+            return None::create();
+        }
 
         $summary = json_decode($response->getBody())->currently->summary;
         $weatherResponse = new WeatherResponse($summary);
