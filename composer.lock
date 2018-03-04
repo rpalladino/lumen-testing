@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac4b941d084787d1609b31e490b2248b",
+    "content-hash": "1dc0344a8390a771249af108e3620f52",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -2648,6 +2648,44 @@
                 "fixtures"
             ],
             "time": "2017-08-15T16:48:10+00:00"
+        },
+        {
+            "name": "giberti/phpunit-local-server",
+            "version": "v0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/giberti/phpunit-local-server.git",
+                "reference": "5e173b620c47296ca884f23dab55b39e7134d356"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giberti/phpunit-local-server/zipball/5e173b620c47296ca884f23dab55b39e7134d356",
+                "reference": "5e173b620c47296ca884f23dab55b39e7134d356",
+                "shasum": ""
+            },
+            "require": {
+                "ext-posix": "*",
+                "php": "^7.0",
+                "phpunit/phpunit": "^6.0 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Giberti\\PHPUnitLocalServer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erik Giberti",
+                    "homepage": "https://github.com/giberti"
+                }
+            ],
+            "description": "A local HTTP server for PHPUnit tests",
+            "time": "2018-01-15T21:18:29+00:00"
         },
         {
             "name": "graze/hamcrest-test-listener",
