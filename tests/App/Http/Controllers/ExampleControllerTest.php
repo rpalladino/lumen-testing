@@ -39,13 +39,9 @@ class ExampleControllerTest extends TestCase
      */
     public function shouldReturnFullNameOfAPerson()
     {
-        $peter = new Person();
-        $peter->firstName = "Peter";
-        $peter->lastName = "Pan";
-
         $this->personRepository->allows()
              ->findByLastName("Pan")
-             ->andReturns(new Some($peter));
+             ->andReturns(new Some(Person::named('Peter', 'Pan')));
 
         $greeting = $this->subject->helloPerson("Pan");
 
