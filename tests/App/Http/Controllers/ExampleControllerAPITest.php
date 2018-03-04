@@ -1,13 +1,28 @@
 <?php
 
 use Example\Person\Person;
-use Laravel\Lumen\Testing\DatabaseMigrations;
+use Example\Person\PersonRepository;
+use Example\Weather\WeatherClient;
+use Example\Weather\WeatherResponse;
+use PhpOption\Some;
 
 define('OK', 200);
 
 class ExampleControllerAPITest extends TestCase
 {
-    use DatabaseMigrations;
+    private $personRepository;
+    private $weatherClient;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->personRepository = Mockery::mock(PersonRepository::class);
+        $this->weatherClient = Mockery::mock(WeatherClient::class);
+
+        $this->app->instance(PersonRepository::class, $this->personRepository);
+        $this->app->instance(WeatherClient::class, $this->weatherClient);
+    }
 
     /**
      * @test
@@ -25,10 +40,9 @@ class ExampleControllerAPITest extends TestCase
      */
     public function shouldReturnFullName()
     {
-        factory(Person::class)->create([
-            'firstName' => 'Peter',
-            'lastName'  => 'Pan'
-        ]);
+        $this->personRepository->allows()
+            ->findByLastName("Pan")
+            ->andReturns(new Some(Person::named('Peter', 'Pan')));
 
         $response = $this->call('GET', '/hello/Pan');
 
@@ -41,10 +55,14 @@ class ExampleControllerAPITest extends TestCase
      */
     public function shouldReturnCurrentWeather()
     {
-        $this->markTestSkipped('This will fail until we stub the http request');
+        $weatherResponse = new WeatherResponse("Partly cloudy");
+        $this->weatherClient->allows()
+            ->currentWeather()
+            ->andReturns(new Some($weatherResponse));
 
         $response = $this->call('GET', '/weather');
 
         assertThat($response->status(), is(OK));
+        assertThat($response->content(), containsString("Partly cloudy"));
     }
 }
