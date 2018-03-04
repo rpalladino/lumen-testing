@@ -23,7 +23,7 @@ class WeatherAcceptanceTest extends TestCase
         $wireMock->stubFor(WireMock::get(WireMock::urlEqualTo($path))
             ->willReturn(WireMock::aResponse()
                 ->withHeader('Content-Type', 'application/json')
-                ->withBody(FileLoader::read(__DIR__.'/Weather/weatherApiResponse.json'))));
+                ->withBody(FileLoader::read(__DIR__.'/weatherApiResponse.json'))));
 
         $response = $this->call('GET', '/weather');
 
