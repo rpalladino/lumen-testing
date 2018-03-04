@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac4b941d084787d1609b31e490b2248b",
+    "content-hash": "295c6556322993aee278444f0f426c45",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -2513,6 +2513,36 @@
     ],
     "packages-dev": [
         {
+            "name": "apache/log4php",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git-wip-us.apache.org/repos/asf/logging-log4php.git",
+                "reference": "cac428b6f67d2035af39784da1d1a299ef42fcf2"
+            },
+            "require": {
+                "php": ">=5.2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/main/php/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "A versatile logging framework for PHP",
+            "homepage": "http://logging.apache.org/log4php/",
+            "keywords": [
+                "log",
+                "logging",
+                "php"
+            ],
+            "time": "2012-10-26T09:13:25+00:00"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -2829,6 +2859,223 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
+            "name": "jfalque/http-mock",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/julienfalque/http-mock.git",
+                "reference": "c1081fefcf7c21a9d0b8096323bcaa50b41f5981"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/julienfalque/http-mock/zipball/c1081fefcf7c21a9d0b8096323bcaa50b41f5981",
+                "reference": "c1081fefcf7c21a9d0b8096323bcaa50b41f5981",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/psr7": "~1.0",
+                "php": ">=7",
+                "psr/http-message": "~1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.0.*",
+                "mikey179/vfsstream": "1.6.*",
+                "phpunit/phpunit": "6.0.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jfalque\\HttpMock\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Mocks HTTP calls for tests",
+            "keywords": [
+                "http",
+                "mock",
+                "test"
+            ],
+            "time": "2017-02-05T14:40:11+00:00"
+        },
+        {
+            "name": "justinrainbow/json-schema",
+            "version": "5.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/justinrainbow/json-schema.git",
+                "reference": "429be236f296ca249d61c65649cdf2652f4a5e80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/429be236f296ca249d61c65649cdf2652f4a5e80",
+                "reference": "429be236f296ca249d61c65649cdf2652f4a5e80",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.1",
+                "json-schema/json-schema-test-suite": "1.2.0",
+                "phpdocumentor/phpdocumentor": "^2.7",
+                "phpunit/phpunit": "^4.8.22"
+            },
+            "bin": [
+                "bin/validate-json"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JsonSchema\\": "src/JsonSchema/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Prieto Reis",
+                    "email": "bruno.p.reis@gmail.com"
+                },
+                {
+                    "name": "Justin Rainbow",
+                    "email": "justin.rainbow@gmail.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
+                    "name": "Robert Schönthal",
+                    "email": "seroscho@googlemail.com"
+                }
+            ],
+            "description": "A library to validate a json schema.",
+            "homepage": "https://github.com/justinrainbow/json-schema",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2017-05-16T21:06:09+00:00"
+        },
+        {
+            "name": "lukascivil/treewalker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lukascivil/TreeWalker.git",
+                "reference": "bb6e827bbd8361d6b3bb0fe49e134e7407c9b230"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lukascivil/TreeWalker/zipball/bb6e827bbd8361d6b3bb0fe49e134e7407c9b230",
+                "reference": "bb6e827bbd8361d6b3bb0fe49e134e7407c9b230",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lucas cordeiro da Silva",
+                    "email": "lukas_civil@hotmail.com"
+                }
+            ],
+            "description": "TreeWalker is a simple and small Library that will help you to work faster with manipulation of structures in PHP",
+            "keywords": [
+                "array",
+                "diff",
+                "dynamically",
+                "json",
+                "merge",
+                "objects",
+                "recursivelly",
+                "struct"
+            ],
+            "time": "2018-02-18T00:16:45+00:00"
+        },
+        {
+            "name": "mattersight/phppact",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pact-foundation/pact-php.git",
+                "reference": "5b3b7078f389f41ff8c95c8b187a8be692223c49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pact-foundation/pact-php/zipball/5b3b7078f389f41ff8c95c8b187a8be692223c49",
+                "reference": "5b3b7078f389f41ff8c95c8b187a8be692223c49",
+                "shasum": ""
+            },
+            "require": {
+                "apache/log4php": "^2.3",
+                "jfalque/http-mock": "^1.0",
+                "justinrainbow/json-schema": "5.2.1",
+                "lukascivil/treewalker": "dev-master",
+                "peekmo/jsonpath": "dev-feature_pathing_retention",
+                "php": ">=7",
+                "php-http/guzzle6-adapter": "^1.1",
+                "windwalker/http": "~3.0",
+                "zendframework/zend-json": "^3.0",
+                "zendframework/zend-xml2json": "^3.1"
+            },
+            "require-dev": {
+                "phpunit/dbunit": "^3.0",
+                "phpunit/php-invoker": "^1.1",
+                "phpunit/phpunit": "^6.2",
+                "symfony/yaml": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpPact\\": "src",
+                    "PhpPactTest\\": "test"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mattermack",
+                    "email": "charles.mack@mattersight.com"
+                }
+            ],
+            "description": "Natively enables consumer driven contract testing, following the PACT foundation principles.",
+            "homepage": "https://github.com/Mattersight/php-pact",
+            "keywords": [
+                "mattersight",
+                "pact",
+                "pact-php",
+                "pact-php-native",
+                "php-mock"
+            ],
+            "time": "2018-02-21T22:28:58+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "1.0",
             "source": {
@@ -2990,6 +3237,51 @@
             "time": "2018-01-25T21:31:33+00:00"
         },
         {
+            "name": "peekmo/jsonpath",
+            "version": "dev-feature_pathing_retention",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mattermack/JsonPath.git",
+                "reference": "400804498619a11e4c356da6d673e3fc60821273"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mattermack/JsonPath/zipball/400804498619a11e4c356da6d673e3fc60821273",
+                "reference": "400804498619a11e4c356da6d673e3fc60821273",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-0": {
+                    "Peekmo\\JsonPath": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stefan Goessner"
+                },
+                {
+                    "name": "Axel Anceau",
+                    "email": "axel.anceau@gmail.com"
+                }
+            ],
+            "description": "Library to use JsonPath",
+            "homepage": "https://github.com/Peekmo/JsonPath",
+            "support": {
+                "source": "https://github.com/mattermack/JsonPath/tree/feature_pathing_retention"
+            },
+            "time": "2017-10-18T18:29:01+00:00"
+        },
+        {
             "name": "phar-io/manifest",
             "version": "1.0.1",
             "source": {
@@ -3090,6 +3382,172 @@
             ],
             "description": "Library for handling version information and constraints",
             "time": "2017-03-05T17:38:23+00:00"
+        },
+        {
+            "name": "php-http/guzzle6-adapter",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/guzzle6-adapter.git",
+                "reference": "a56941f9dc6110409cfcddc91546ee97039277ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/guzzle6-adapter/zipball/a56941f9dc6110409cfcddc91546ee97039277ab",
+                "reference": "a56941f9dc6110409cfcddc91546ee97039277ab",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "php": ">=5.5.0",
+                "php-http/httplug": "^1.0"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "1.0",
+                "php-http/client-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "php-http/adapter-integration-tests": "^0.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Adapter\\Guzzle6\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                },
+                {
+                    "name": "David de Boer",
+                    "email": "david@ddeboer.nl"
+                }
+            ],
+            "description": "Guzzle 6 HTTP Adapter",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "Guzzle",
+                "http"
+            ],
+            "time": "2016-05-10T06:13:32+00:00"
+        },
+        {
+            "name": "php-http/httplug",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/httplug.git",
+                "reference": "1c6381726c18579c4ca2ef1ec1498fdae8bdf018"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/httplug/zipball/1c6381726c18579c4ca2ef1ec1498fdae8bdf018",
+                "reference": "1c6381726c18579c4ca2ef1ec1498fdae8bdf018",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "php-http/promise": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "HTTPlug, the HTTP client abstraction for PHP",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "client",
+                "http"
+            ],
+            "time": "2016-08-31T08:30:17+00:00"
+        },
+        {
+            "name": "php-http/promise",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/promise.git",
+                "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/promise/zipball/dc494cdc9d7160b9a09bd5573272195242ce7980",
+                "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980",
+                "shasum": ""
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Promise\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                },
+                {
+                    "name": "Joel Wurtz",
+                    "email": "joel.wurtz@gmail.com"
+                }
+            ],
+            "description": "Promise used for asynchronous HTTP requests",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-01-26T13:27:02+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -4544,6 +5002,106 @@
             "time": "2018-01-29T19:49:41+00:00"
         },
         {
+            "name": "windwalker/http",
+            "version": "3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ventoviro/windwalker-http.git",
+                "reference": "729fd53e9a687e92a50d4b2cc788d235bd2179a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ventoviro/windwalker-http/zipball/729fd53e9a687e92a50d4b2cc788d235bd2179a3",
+                "reference": "729fd53e9a687e92a50d4b2cc788d235bd2179a3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "psr/http-message": "1.*",
+                "windwalker/uri": "~3.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "~1.0"
+            },
+            "require-dev": {
+                "windwalker/environment": "~3.0",
+                "windwalker/test": "~3.0"
+            },
+            "type": "windwalker-package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Windwalker\\Http\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.0-or-later"
+            ],
+            "description": "Windwalker Http package",
+            "homepage": "https://github.com/ventoviro/windwalker-http",
+            "keywords": [
+                "framework",
+                "http",
+                "psr7",
+                "request",
+                "windwalker"
+            ],
+            "time": "2018-03-01T06:54:44+00:00"
+        },
+        {
+            "name": "windwalker/uri",
+            "version": "3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ventoviro/windwalker-uri.git",
+                "reference": "1989ebeef4f3c23596c717f34a0c895fbc3bb211"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ventoviro/windwalker-uri/zipball/1989ebeef4f3c23596c717f34a0c895fbc3bb211",
+                "reference": "1989ebeef4f3c23596c717f34a0c895fbc3bb211",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "psr/http-message": "1.*",
+                "windwalker/test": "~3.0"
+            },
+            "suggest": {
+                "psr/http-message": "Install 1.* if you need PsrUri support."
+            },
+            "type": "windwalker-package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Windwalker\\Uri\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.0-or-later"
+            ],
+            "description": "Windwalker Uri package",
+            "homepage": "https://github.com/ventoviro/windwalker-uri",
+            "keywords": [
+                "framework",
+                "uri",
+                "windwalker"
+            ],
+            "time": "2018-02-20T08:15:16+00:00"
+        },
+        {
             "name": "wiremock-php/wiremock-php",
             "version": "1.43.2",
             "source": {
@@ -4582,6 +5140,149 @@
             "description": "PHP API for WireMock JSON interface",
             "homepage": "http://github.com/rowanhill/wiremock-php",
             "time": "2017-02-27T11:45:37+00:00"
+        },
+        {
+            "name": "zendframework/zend-json",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-json.git",
+                "reference": "4dd940e8e6f32f1d36ea6b0677ea57c540c7c19c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-json/zipball/4dd940e8e6f32f1d36ea6b0677ea57c540c7c19c",
+                "reference": "4dd940e8e6f32f1d36ea6b0677ea57c540c7c19c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.23 || ^6.4.3",
+                "zendframework/zend-coding-standard": "~1.0.0",
+                "zendframework/zend-stdlib": "^2.7.7 || ^3.1"
+            },
+            "suggest": {
+                "zendframework/zend-json-server": "For implementing JSON-RPC servers",
+                "zendframework/zend-xml2json": "For converting XML documents to JSON"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev",
+                    "dev-develop": "3.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Json\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides convenience methods for serializing native PHP to JSON and decoding JSON to native PHP",
+            "keywords": [
+                "ZendFramework",
+                "json",
+                "zf"
+            ],
+            "time": "2018-01-04T17:51:34+00:00"
+        },
+        {
+            "name": "zendframework/zend-xml2json",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-xml2json.git",
+                "reference": "18fe365ea1355a4b220db8e98ccdc62c0bed18f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-xml2json/zipball/18fe365ea1355a4b220db8e98ccdc62c0bed18f5",
+                "reference": "18fe365ea1355a4b220db8e98ccdc62c0bed18f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-json": "^2.6.1 || ^3.0",
+                "zendframework/zendxml": "^1.0.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.22 || ^6.4.1",
+                "zendframework/zend-coding-standard": "~1.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev",
+                    "dev-develop": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Xml2Json\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Provides functionality for converting XML to JSON, optionally including XML attributes",
+            "homepage": "https://github.com/zendframework/zend-xml2json",
+            "keywords": [
+                "json",
+                "xml",
+                "zf2"
+            ],
+            "time": "2017-10-16T14:21:32+00:00"
+        },
+        {
+            "name": "zendframework/zendxml",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/ZendXml.git",
+                "reference": "7b64507bc35d841c9c5802d67f6f87ef8e1a58c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/ZendXml/zipball/7b64507bc35d841c9c5802d67f6f87ef8e1a58c9",
+                "reference": "7b64507bc35d841c9c5802d67f6f87ef8e1a58c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^3.7 || ^4.0",
+                "squizlabs/php_codesniffer": "^1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ZendXml\\": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Utility library for XML usage, best practices, and security in PHP",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "security",
+                "xml",
+                "zf2"
+            ],
+            "time": "2016-02-04T21:02:08+00:00"
         }
     ],
     "aliases": [],
