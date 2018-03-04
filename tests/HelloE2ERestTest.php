@@ -1,32 +1,34 @@
 <?php
 
-use Giberti\PHPUnitLocalServer\LocalServerTestCase;
-use GuzzleHttp\Client;
+use Example\Person\Person;
+use Example\Person\PersonRepository;
+use Laravel\Lumen\Testing\DatabaseMigrations;
 
-class HelloE2ERestTest extends LocalServerTestCase
+class HelloE2ERestTest extends TestCase
 {
-    /**
-     * @var Client
-     */
-    private $httpClient;
-
-    public function setUp()
-    {
-        static::createServerWithDocroot(__DIR__.'/../public/');
-
-        $this->httpClient = new Client([
-            'base_uri' => $this->getLocalServerUrl()
-        ]);
-    }
+    use DatabaseMigrations;
 
     /**
      * @test
      */
     public function shouldReturnHelloWorld()
     {
-        $response = $this->httpClient->request('GET', '/hello');
+        $response = $this->call('GET', '/hello');
 
-        assertThat($response->getStatusCode(), is(200));
-        assertThat((string) $response->getBody(), containsString("Hello World!"));
+        assertThat($response->status(), is(200));
+        assertThat($response->content(), containsString("Hello World!"));
+    }
+
+    /**
+     * @test
+     */
+    public function shouldReturnGreeting()
+    {
+        Person::named('Peter', 'Pan')->save();
+
+        $response = $this->call('GET', '/hello/Pan');
+
+        assertThat($response->status(), is(200));
+        assertThat($response->content(), containsString("Hello Peter Pan!"));
     }
 }

@@ -13,7 +13,6 @@
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "giberti/phpunit-local-server": "^0.1.2",
         "graze/hamcrest-test-listener": "^3.0",
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "^6.5",
