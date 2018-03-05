@@ -1,0 +1,29 @@
+{
+  "consumer": {
+    "name": "person_consumer"
+  },
+  "provider": {
+    "name": "person_provider"
+  },
+  "interactions": [
+    {
+      "description": "A request for Peter Pan",
+      "providerState": "person data",
+      "request": {
+        "method": "GET",
+        "path": "/hello/Pan"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": "Hello Peter Pan!"
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
