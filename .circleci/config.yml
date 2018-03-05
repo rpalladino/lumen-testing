@@ -20,6 +20,7 @@ jobs:
 
     environment:
       - APP_ENV=testing
+      - CACHE_DRIVER=array
       - DB_CONNECTION=sqlite
 
     working_directory: ~/repo
@@ -43,4 +44,14 @@ jobs:
 
       # run tests!
       - run: vendor/bin/phpunit
+
+      # contract tests require a running local server
+      - run:
+          name: Start Local Server
+          command: |
+            php -S 0.0.0.0:8000 -t public/
+          background: true
+      - run: touch /home/circleci/repo/database/database.sqlite
+      - run: php artisan migrate
+      - run: php artisan db:seed
       - run: vendor/bin/phpunit --group=contract
