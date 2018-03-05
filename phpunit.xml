@@ -13,8 +13,17 @@
     <testsuites>
         <testsuite name="Application Test Suite">
             <directory suffix="Test.php">./tests</directory>
+            <exclude>./tests/Weather/WeatherClientConsumerTest.php</exclude>
+        </testsuite>
+        <testsuite name="Pact Contract Test Suite">
+            <directory suffix="ConsumerTest.php">./tests</directory>
         </testsuite>
     </testsuites>
+    <groups>
+        <exclude>
+            <group>contract</group>
+        </exclude>
+    </groups>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
@@ -22,6 +31,15 @@
     </filter>
     <listeners>
         <listener class="\Hamcrest\Adapter\PHPUnit\TestListener"/>
+        <listener class="PhpPact\Consumer\Listener\PactTestListener">
+            <arguments>
+                <array>
+                    <element>
+                        <string>Pact Contract Test Suite</string>
+                    </element>
+                </array>
+            </arguments>
+        </listener>
     </listeners>
     <php>
         <env name="APP_ENV" value="testing"/>
@@ -30,5 +48,13 @@
         <env name="DB_DATABASE" value=":memory:"/>
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="WEATHER_SERVICE_URL" value="http://localhost:9999/forecast"/>
+        <env name="PACT_MOCK_SERVER_HOST" value="localhost"/>
+        <env name="PACT_MOCK_SERVER_PORT" value="7200"/>
+        <env name="PACT_CONSUMER_NAME" value="sample_microservice"/>
+        <env name="PACT_CONSUMER_VERSION" value="1.0.0"/>
+        <!-- <env name="PACT_CONSUMER_TAG" value="master"/> -->
+        <env name="PACT_PROVIDER_NAME" value="weather_provider"/>
+        <env name="PACT_OUTPUT_DIR" value="./resources/pact"/>
+        <!-- <env name="PACT_BROKER_URI" value="http://localhost"/> -->
     </php>
 </phpunit>

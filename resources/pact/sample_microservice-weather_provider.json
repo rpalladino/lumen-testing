@@ -1,0 +1,29 @@
+{
+  "consumer": {
+    "name": "sample_microservice"
+  },
+  "provider": {
+    "name": "weather_provider"
+  },
+  "interactions": [
+    {
+      "description": "Weather forecast data",
+      "providerState": "A request for a forecast",
+      "request": {
+        "method": "GET",
+        "path": "/forecast/some-api-key/53.5511,9.9937"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": "{\n  \"latitude\": 47.20296790272209,\n  \"longitude\": -123.41670367098749,\n  \"timezone\": \"America/Los_Angeles\",\n  \"currently\": {\n    \"time\": 1453402675,\n    \"summary\": \"Rain\",\n    \"icon\": \"rain\",\n    \"nearestStormDistance\": 0,\n    \"precipIntensity\": 0.1685,\n    \"precipIntensityError\": 0.0067,\n    \"precipProbability\": 1,\n    \"precipType\": \"rain\",\n    \"temperature\": 48.71,\n    \"apparentTemperature\": 46.93,\n    \"dewPoint\": 47.7,\n    \"humidity\": 0.96,\n    \"windSpeed\": 4.64,\n    \"windBearing\": 186,\n    \"visibility\": 4.3,\n    \"cloudCover\": 0.73,\n    \"pressure\": 1009.7,\n    \"ozone\": 328.35\n  },\n  \"minutely\": {\n    \"summary\": \"Rain for the hour.\",\n    \"icon\": \"rain\",\n    \"data\": [\n      {\n        \"time\": 1453402620,\n        \"precipIntensity\": 0.1715,\n        \"precipIntensityError\": 0.0066,\n        \"precipProbability\": 1,\n        \"precipType\": \"rain\"\n      }\n    ]\n  },\n  \"hourly\": {\n    \"summary\": \"Rain throughout the day.\",\n    \"icon\": \"rain\",\n    \"data\": [\n      {\n        \"time\": 1453399200,\n        \"summary\": \"Rain\",\n        \"icon\": \"rain\",\n        \"precipIntensity\": 0.1379,\n        \"precipProbability\": 0.85,\n        \"precipType\": \"rain\",\n        \"temperature\": 48.16,\n        \"apparentTemperature\": 46.41,\n        \"dewPoint\": 46.89,\n        \"humidity\": 0.95,\n        \"windSpeed\": 4.47,\n        \"windBearing\": 166,\n        \"visibility\": 3.56,\n        \"cloudCover\": 0.39,\n        \"pressure\": 1009.97,\n        \"ozone\": 328.71\n      }\n    ]\n  },\n  \"daily\": {\n    \"summary\": \"Light rain throughout the week, with temperatures bottoming out at 48°F on Sunday.\",\n    \"icon\": \"rain\",\n    \"data\": [\n      {\n        \"time\": 1453363200,\n        \"summary\": \"Rain throughout the day.\",\n        \"icon\": \"rain\",\n        \"sunriseTime\": 1453391560,\n        \"sunsetTime\": 1453424361,\n        \"moonPhase\": 0.43,\n        \"precipIntensity\": 0.1134,\n        \"precipIntensityMax\": 0.1722,\n        \"precipIntensityMaxTime\": 1453392000,\n        \"precipProbability\": 0.87,\n        \"precipType\": \"rain\",\n        \"temperatureMin\": 41.42,\n        \"temperatureMinTime\": 1453363200,\n        \"temperatureMax\": 53.27,\n        \"temperatureMaxTime\": 1453417200,\n        \"apparentTemperatureMin\": 36.68,\n        \"apparentTemperatureMinTime\": 1453363200,\n        \"apparentTemperatureMax\": 53.27,\n        \"apparentTemperatureMaxTime\": 1453417200,\n        \"dewPoint\": 46.79,\n        \"humidity\": 0.95,\n        \"windSpeed\": 4.26,\n        \"windBearing\": 150,\n        \"visibility\": 4.02,\n        \"cloudCover\": 0.77,\n        \"pressure\": 1009.35,\n        \"ozone\": 326.69\n      }\n    ]\n  }\n}\n"
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
