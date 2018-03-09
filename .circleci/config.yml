@@ -59,7 +59,7 @@ jobs:
       # run tests!
       - run: vendor/bin/phpunit
 
-      # pact & selenium tests require a running local server
+      # run local server
       - run:
           name: Start Local Server
           command: |
@@ -68,6 +68,9 @@ jobs:
       - run: touch /home/circleci/repo/database/database.sqlite
       - run: php artisan migrate
       - run: php artisan db:seed
+
+      # run smoke tests
+      - run: vendor/bin/cigar
 
       # run pact tests
       - run: vendor/bin/phpunit --group=contract
