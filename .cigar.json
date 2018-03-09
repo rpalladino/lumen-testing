@@ -1,0 +1,17 @@
+[
+	{
+		"url": "http://localhost:8000/hello",
+		"status": 200,
+		"content": "Hello World!"
+	},
+	{
+		"url": "http://localhost:8000/hello/Pan",
+		"status": 200,
+		"content": "Hello Peter Pan!"
+	},
+	{
+		"url": "http://localhost:8000/hello/Peter",
+		"status": 200,
+		"content": "Who is this 'Peter' you're talking about?"
+	}
+]
