@@ -6,6 +6,10 @@ use Laravel\Lumen\Testing\DatabaseMigrations;
 use Laravel\Lumen\Testing\DatabaseTransactions;
 use PhpOption\Option;
 
+/**
+ * @group integration
+ * @small
+ */
 class PersonRepositoryIntegrationTest extends TestCase
 {
     use DatabaseMigrations;

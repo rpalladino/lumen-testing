@@ -4,7 +4,11 @@ use Example\Person\Person;
 use Example\Person\PersonRepository;
 use Laravel\Lumen\Testing\DatabaseMigrations;
 
-class HelloE2ERestTest extends TestCase
+/**
+ * @group acceptance
+ * @small
+ */
+class HelloAcceptanceTest extends TestCase
 {
     use DatabaseMigrations;
 

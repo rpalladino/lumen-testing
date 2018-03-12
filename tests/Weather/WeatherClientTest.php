@@ -11,6 +11,10 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Exception\RequestException;
 use PhpOption\Option;
 
+/**
+ * @group unit
+ * @small
+ */
 class WeatherClientTest extends PHPUnit\Framework\TestCase
 {
     const RESPONSE_FILE = __DIR__."/weatherApiResponse.json";

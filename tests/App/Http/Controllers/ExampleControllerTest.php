@@ -9,6 +9,10 @@ use PhpOption\Some;
 use PhpOption\None;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @group unit
+ * @small
+ */
 class ExampleControllerTest extends TestCase
 {
     private $subject;

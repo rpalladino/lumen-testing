@@ -6,7 +6,9 @@ use Facebook\WebDriver\Remote\RemoteWebDriver;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @group e2e
  * @group selenium
+ * @medium
  */
 class HelloE2ESeleniumTest extends TestCase
 {

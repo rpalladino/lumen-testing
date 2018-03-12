@@ -7,8 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @group contract
+ * @medium
  */
-class ExampleProviderTest extends TestCase
+class HelloProviderTest extends TestCase
 {
     /**
      * @test

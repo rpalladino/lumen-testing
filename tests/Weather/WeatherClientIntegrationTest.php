@@ -6,6 +6,10 @@ use GuzzleHttp\Client as HttpClient;
 use PhpOption\Option;
 use WireMock\Client\WireMock;
 
+/**
+ * @group wiremock
+ * @group integration
+ */
 class WeatherClientIntegrationTest extends PHPUnit\Framework\TestCase
 {
     /**

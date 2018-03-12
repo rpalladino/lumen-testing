@@ -8,6 +8,10 @@ use PhpOption\Some;
 
 define('OK', 200);
 
+/**
+ * @group integration
+ * @small
+ */
 class ExampleControllerAPITest extends TestCase
 {
     private $personRepository;

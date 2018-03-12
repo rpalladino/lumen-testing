@@ -3,6 +3,10 @@
 use Example\Helper\FileLoader;
 use WireMock\Client\WireMock;
 
+/**
+ * @group wiremock
+ * @group acceptance
+ */
 class WeatherAcceptanceTest extends TestCase
 {
     /**

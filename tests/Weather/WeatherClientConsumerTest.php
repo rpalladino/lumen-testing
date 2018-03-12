@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @group contract
+ * @medium
  */
 class WeatherClientConsumerTest extends TestCase
 {
@@ -28,7 +29,7 @@ class WeatherClientConsumerTest extends TestCase
 
     /**
      * Create the pact between consumer and provider
-     * 
+     *
      * @before
      */
     public function createPact()
