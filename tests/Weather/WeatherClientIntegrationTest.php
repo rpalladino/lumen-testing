@@ -3,6 +3,7 @@
 use Example\Helper\FileLoader;
 use Example\Weather\WeatherClient;
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Psr7\Uri;
 use PhpOption\Option;
 use WireMock\Client\WireMock;
 
@@ -18,20 +19,34 @@ class WeatherClientIntegrationTest extends PHPUnit\Framework\TestCase
     private $subject;
 
     /**
-     * Parsed weather service url
-     * @var array
+     * @var WireMock
      */
-    private $weatherService;
+    private $wireMock;
+
+    /**
+     * Weather service URI
+     * @var Uri
+     */
+    private $weatherServiceUri;
+
+    /**
+     * @before
+     */
+    public function setUpWireMock()
+    {
+        $this->weatherServiceUri = new Uri(getenv('WEATHER_SERVICE_URL'));
+
+        $this->wireMock = WireMock::create(
+            $this->weatherServiceUri->getHost(),
+            $this->weatherServiceUri->getPort()
+        );
+
+        assertThat($this->wireMock->isAlive(), is(true));
+    }
 
     public function setUp()
     {
-        $url = getenv('WEATHER_SERVICE_URL');
-        $this->weatherService = parse_url($url);
-        $this->wireMock = WireMock::create(
-            $this->weatherService['host'],
-            $this->weatherService['port']
-        );
-
+        $url = getenv("WEATHER_SERVICE_URL");
         $this->subject = new WeatherClient(new HttpClient(), $url);
     }
 
@@ -40,7 +55,7 @@ class WeatherClientIntegrationTest extends PHPUnit\Framework\TestCase
      */
     public function shouldCallWeatherService()
     {
-        $path = $this->weatherService['path'];
+        $path = $this->weatherServiceUri->getPath();
         $this->wireMock->stubFor(WireMock::get(WireMock::urlEqualTo($path))
             ->willReturn(WireMock::aResponse()
                 ->withStatus(200)

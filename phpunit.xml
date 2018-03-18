@@ -21,6 +21,7 @@
     </testsuites>
     <groups>
         <exclude>
+            <group>wiremock</group>
             <group>contract</group>
             <group>selenium</group>
         </exclude>

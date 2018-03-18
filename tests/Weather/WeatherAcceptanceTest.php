@@ -1,6 +1,7 @@
 <?php
 
 use Example\Helper\FileLoader;
+use GuzzleHttp\Psr7\Uri;
 use WireMock\Client\WireMock;
 
 /**
@@ -10,21 +11,38 @@ use WireMock\Client\WireMock;
 class WeatherAcceptanceTest extends TestCase
 {
     /**
+     * @var WireMock
+     */
+    private $wireMock;
+
+    /**
+     * Weather service URI
+     * @var Uri
+     */
+    private $weatherServiceUri;
+
+    /**
+     * @before
+     */
+    public function setUpWireMock()
+    {
+        $this->weatherServiceUri = new Uri(getenv('WEATHER_SERVICE_URL'));
+
+        $this->wireMock = WireMock::create(
+            $this->weatherServiceUri->getHost(),
+            $this->weatherServiceUri->getPort()
+        );
+
+        assertThat($this->wireMock->isAlive(), is(true));
+    }
+
+    /**
      * @test
      */
     public function shouldReturnCurrentWeather()
     {
-        $weatherService = parse_url(getenv('WEATHER_SERVICE_URL'));
-
-        $wireMock = WireMock::create(
-            $weatherService['host'],
-            $weatherService['port']
-        );
-
-        assertThat($wireMock->isAlive(), is(true));
-
-        $path = $weatherService['path'];
-        $wireMock->stubFor(WireMock::get(WireMock::urlEqualTo($path))
+        $path = $this->weatherServiceUri->getPath();
+        $this->wireMock->stubFor(WireMock::get(WireMock::urlEqualTo($path))
             ->willReturn(WireMock::aResponse()
                 ->withHeader('Content-Type', 'application/json')
                 ->withBody(FileLoader::read(__DIR__.'/weatherApiResponse.json'))));
