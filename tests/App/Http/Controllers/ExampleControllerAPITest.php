@@ -6,8 +6,6 @@ use Example\Weather\WeatherClient;
 use Example\Weather\WeatherResponse;
 use PhpOption\Some;
 
-define('OK', 200);
-
 /**
  * @group integration
  * @small

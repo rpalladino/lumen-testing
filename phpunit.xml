@@ -54,10 +54,9 @@
         <env name="PACT_MOCK_SERVER_PORT" value="7200"/>
         <env name="PACT_CONSUMER_NAME" value="sample_microservice"/>
         <env name="PACT_CONSUMER_VERSION" value="1.0.0"/>
-        <!-- <env name="PACT_CONSUMER_TAG" value="master"/> -->
         <env name="PACT_PROVIDER_NAME" value="weather_provider"/>
         <env name="PACT_OUTPUT_DIR" value="./resources/pact"/>
-        <!-- <env name="PACT_BROKER_URI" value="http://localhost"/> -->
         <env name="SELENIUM_SERVER_URL" value="http://localhost:4444/wd/hub"/>
+        <const name="OK" value="200"/>
     </php>
 </phpunit>
