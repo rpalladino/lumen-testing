@@ -43,8 +43,7 @@ class ExampleControllerTest extends TestCase
      */
     public function shouldReturnFullNameOfAPerson()
     {
-        $this->personRepository->allows()
-             ->findByLastName("Pan")
+        $this->personRepository->allows()->findByLastName("Pan")
              ->andReturns(new Some(Person::named('Peter', 'Pan')));
 
         $greeting = $this->subject->helloPerson("Pan");
@@ -57,8 +56,7 @@ class ExampleControllerTest extends TestCase
      */
     public function shouldTellIfPersonIsUnknown()
     {
-        $this->personRepository->allows()
-             ->findByLastName(anything())
+        $this->personRepository->allows()->findByLastName(anything())
              ->andReturns(None::create());
 
         $greeting = $this->subject->helloPerson("Pan");
@@ -71,15 +69,13 @@ class ExampleControllerTest extends TestCase
      */
     public function shouldCallWeatherClient()
     {
-        $current = "Hamburg, 8°C raining";
-        $this->weatherClient
-            ->allows()
-                ->currentWeather()
-                ->andReturns(new Some(new WeatherResponse($current)));
+        $weatherResponse = new WeatherResponse("Hamburg, 8°C raining");
+        $this->weatherClient->allows()->currentWeather()
+             ->andReturns(new Some($weatherResponse));
 
         $weather = $this->subject->weather();
 
-        assertThat($weather, is($current));
+        assertThat($weather, is("Hamburg, 8°C raining"));
     }
 
     /**
@@ -87,9 +83,8 @@ class ExampleControllerTest extends TestCase
      */
     public function shouldReturnErrorMessageIfWeatherIsUnavailable()
     {
-        $this->weatherClient->allows()
-            ->currentWeather()
-            ->andReturns(None::create());
+        $this->weatherClient->allows()->currentWeather()
+             ->andReturns(None::create());
 
         $weather = $this->subject->weather();
 
