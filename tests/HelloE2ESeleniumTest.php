@@ -30,7 +30,7 @@ class HelloE2ESeleniumTest extends TestCase
      */
     public function helloPageHasTextHelloWorld()
     {
-        $this->driver->get('http://localhost:8000/hello');
+        $this->driver->get(getenv('LOCAL_SERVER_URL'). "/hello");
 
         $body = $this->driver->findElement(By::tagName('body'));
 

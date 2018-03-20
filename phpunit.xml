@@ -56,6 +56,7 @@
         <env name="PACT_CONSUMER_VERSION" value="1.0.0"/>
         <env name="PACT_PROVIDER_NAME" value="weather_provider"/>
         <env name="PACT_OUTPUT_DIR" value="./resources/pact"/>
+        <env name="LOCAL_SERVER_URL" value="http://localhost:8000"/>
         <env name="SELENIUM_SERVER_URL" value="http://localhost:4444/wd/hub"/>
         <const name="OK" value="200"/>
     </php>

@@ -19,7 +19,7 @@ class HelloProviderTest extends TestCase
         $config = new VerifierConfig();
         $config
             ->setProviderName('person_provider')
-            ->setProviderBaseUrl(new Uri('http://localhost:8000'));
+            ->setProviderBaseUrl(new Uri(getenv('LOCAL_SERVER_URL')));
 
         $verifier = new Verifier($config);
         $verifier->verifyFiles([
